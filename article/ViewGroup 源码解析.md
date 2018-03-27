@@ -164,7 +164,7 @@ public static int getChildMeasureSpec(int spec, int padding, int childDimension)
 
 当然这只是ViewGroup提供的默认的方法，并不是强制的要求以这个规则返回子View的MeasureSpec。一些布局控件例如RelativeLayout会使用自己的子View的MeasureSpec生成规则。根据子View的LayoutParams来生成MeasureSpec，并对子View进行测量后，ViewGroup(继承自ViewGroup的类)就可以进行布局了。(布局对应的方法onLayout是一个抽象方法，在不同的ViewGroup的子类中有不一样的实现)
 
-
+viewGroup遍历自身子view，传入自身的measureSpec（measureChildren），并且测量每个子view（measureChild），计算出子view的MeasureSpec（getChildMeasureSpec），调用子view的measure方法。
 
 ### 子View的添加和删除
 
